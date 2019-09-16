@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LitoPredict</title>
+</head>
+<body bgcolor="000000" text="FFFFFF">
+
+    <h1>LitoPredict</h1>
+    <h2>Input File:</h2>
+<form method=post enctype=multipart/form-data>
+    <input type=file name=file><br><br>
+    Match columns to features:<br><br>
+    DTc:<input type=number name=DTc></input><br>
+    DTs:<input type=number name=DTs></input><br>
+    RHOB: <input type=number name=RHOB></input><br>
+    GR:<input type=number name=GR></input><br><br>
+    Number of header lines: <input type=number name=header></input><br><br>
+    <input type=submit value=Upload>
+</form><br><br>
+Data Preview:<br><br>
+{% for table in tables %}
+            {{titles[loop.index]}}
+            {{ table|safe }}
+{% endfor %}
+
+<br><br>Status: {{  msg }}<br><br>
+
+</body>
+</html>
+
