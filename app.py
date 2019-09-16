@@ -19,14 +19,17 @@ def upload():
         data0 = df.iloc[head_lines:,:]
         data = data0.iloc[:,[col_dtc,col_dts,col_rhob,col_gr]]
 
+        #Data transformation like in model
         imp = SimpleImputer()
         polyfeat = PolynomialFeatures()
         data_imp = imp.fit_transform(data)
-        data_feat = polyfeat.fit_transform(data)
+        data_feat = polyfeat.fit_transform(data_imp)
         data_df = pd.DataFrame(data_feat)
+
+        #Columns used in XGBoost model
         data_df.columns = ['f0', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10', 'f11', 'f12', 'f13', 'f14']
 
-        model = pickle.load(open('LitoPredict\model.pkl','rb'))
+        model = pickle.load(open('LitoPredict\\model.pkl','rb'))
 
         preds = model.predict(data_df)
 
