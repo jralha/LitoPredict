@@ -29,7 +29,7 @@ def upload():
         #Columns used in XGBoost model
         data_df.columns = ['f0', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10', 'f11', 'f12', 'f13', 'f14']
 
-        model = pickle.load(open('LitoPredict\\model.pkl','rb'))
+        model = pickle.load(open("model.pkl",'rb'))
 
         preds = model.predict(data_df)
 

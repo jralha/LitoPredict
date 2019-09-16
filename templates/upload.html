@@ -18,12 +18,6 @@
     Number of header lines: <input type=number name=header></input><br><br>
     <input type=submit value=Upload>
 </form><br><br>
-Data Preview:<br><br>
-{% for table in tables %}
-            {{titles[loop.index]}}
-            {{ table|safe }}
-{% endfor %}
-
 <br><br>Status: {{  msg }}<br><br>
 
 </body>

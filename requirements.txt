@@ -5,5 +5,4 @@ scikit-learn==0.21.3
 Flask==1.1.1
 matplotlib==3.1.1
 xgboost==0.90
-tqdm==4.35.0
-gunicorn-19.9.0
+gunicorn==19.9.0
