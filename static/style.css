@@ -19,13 +19,32 @@
     padding: 20px;
     border-radius: 5px
     }
+
+    .box {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px
+    }
+
+    .upload {
+    margin: 20px auto;
+    width: 300px;
+    }
     
     .app-title {
     text-align: center;
     color: #777;
     }
+
+    .app-text {
+    text-align: center;
+    color: #777;
+    }
     
     .login-form {
+    text-align: center;
+    }
+    .general-form {
     text-align: center;
     }
     .control-group {

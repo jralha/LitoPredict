@@ -16,15 +16,16 @@ def home():
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
-    if request.form['password'] == 'password' and request.form['username'] == 'admin':
+    if request.form['password'] == 'petrec@123' and request.form['username'] == 'petrec':
         session['logged_in'] = True
     else:
-        flash('wrong password!')
-    return home()
+        flash('Wrong Password!')
+    return redirect("/predict")
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
     if session.get('logged_in'):
+        print(request.method)
         if request.method == 'POST':
             df = pd.read_csv(request.files.get('file'))
             col_dtc = int(request.form["DTc"])-1
@@ -55,14 +56,9 @@ def upload():
             resp = make_response(data.to_csv())
             resp.headers["Content-Disposition"] = "attachment; filename=pred.csv"
             #resp.headers["Content-Type"] = "text/csv"
-
-            if [(type(col_dtc) == int),(type(col_dts)==int),(type(col_rhob)==int),(type(col_gr)==int)] == [True,True,True,True]:
-                return resp
-            else:
-                return render_template('upload.html', msg='Error: Non-numeric input.')
-
-            
-        return render_template('upload.html')
+            return resp
+        else:
+            return render_template('upload.html')
     else:
         return home()
 

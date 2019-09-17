@@ -3,22 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>LitoPredict</title>
+    <link rel="stylesheet" href="/static/style.css" type="text/css">
 </head>
 <body>
 
-    <h1>LitoPredict</h1>
-    <h2>Input File:</h2>
 <form method=post enctype=multipart/form-data>
-    <input type=file name=file><br><br>
-    Match columns to features:<br><br>
-    DTc:<input type=number name=DTc></input><br>
-    DTs:<input type=number name=DTs></input><br>
-    RHOB: <input type=number name=RHOB></input><br>
-    GR:<input type=number name=GR></input><br><br>
-    Number of header lines: <input type=number name=header></input><br><br>
-    <input type=submit value=Upload>
-</form><br><br>
-<br><br>Status: {{  msg }}<br><br>
+            <div class="login">
+            <div class="login-screen">
+            <div class="app-title">
+            <h1>LitoPredict</h1>
+            </div>
+            <div class="login-form">
+            <div class="control-group">
+                            <input type="file" class="login-field" name=file>
+            <label class="login-field-icon fui-user" for="login-name"></label></div>
+            <div class="control-group">
+                            <input type="number" class="login-field" value="" placeholder="DTc" name="DTc">
+            <label class="login-field-icon fui-lock" for="login-pass"></label></div>
+            <div class="control-group">
+                            <input type="number" class="login-field" value="" placeholder="DTs" name="DTs">
+            <label class="login-field-icon fui-lock" for="login-pass"></label></div>
+            <div class="control-group">
+                         <input type="number" class="login-field" value="" placeholder="RHOB" name="RHOB">
+            <label class="login-field-icon fui-lock" for="login-pass"></label></div>
+            <div class="control-group">
+                        <input type="number" class="login-field" value="" placeholder="GR" name="GR">
+            <label class="login-field-icon fui-lock" for="login-pass"></label></div>
+            <div class="control-group">
+                        <input type="number" class="login-field" value="" placeholder="Header Lines" name="header">
+            <label class="login-field-icon fui-lock" for="login-pass"></label></div>
+            <input type="submit" value="Upload" class="btn btn-primary btn-large btn-block">
+            
+            </div>
+            </div>
+            </div>
+
+
+</form>
 
 </body>
 </html>
