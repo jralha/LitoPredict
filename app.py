@@ -52,6 +52,7 @@ def upload():
             preds = model.predict(data_df)
 
             data['Pred'] = pd.Series(preds)
+            data['Pred'] = data['Pred'].map({0:'Itapema',1:'Barra Velha'})
 
             resp = make_response(data.to_csv())
             resp.headers["Content-Disposition"] = "attachment; filename=pred.csv"
