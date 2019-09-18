@@ -6,6 +6,7 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.impute import SimpleImputer
 
 app = Flask(__name__)
+app.secret_key = os.urandom(12)
 
 @app.route('/')
 def home():
@@ -62,10 +63,8 @@ def upload():
         return redirect("/login")
 
 # if __name__ == "__main__":
-#     app.secret_key = os.urandom(12)
+     app.secret_key = os.urandom(12)
 #     app.run(debug=True)
-app.secret_key = os.urandom(12)
-app.run(debug=True)
 
 
 
