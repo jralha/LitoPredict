@@ -15,32 +15,37 @@
             </div>
             <div class="login-form">
             <div class="control-group">
-                            <input type="file" class="login-field" name=file>
+                            <input type="file" class="login-field" name=file required>
             <label class="login-field-icon fui-user" for="login-name"></label></div>
             <div class="control-group">
-                            <input type="number" class="login-field" value="" placeholder="DTc" name="DTc">
+                            <input type="number" class="login-field" value="" placeholder="DTc" name="DTc" required>
             <label class="login-field-icon fui-lock" for="login-pass"></label></div>
             <div class="control-group">
-                            <input type="number" class="login-field" value="" placeholder="DTs" name="DTs">
+                            <input type="number" class="login-field" value="" placeholder="DTs" name="DTs" required>
             <label class="login-field-icon fui-lock" for="login-pass"></label></div>
             <div class="control-group">
-                         <input type="number" class="login-field" value="" placeholder="RHOB" name="RHOB">
+                         <input type="number" class="login-field" value="" placeholder="RHOB" name="RHOB" required>
             <label class="login-field-icon fui-lock" for="login-pass"></label></div>
             <div class="control-group">
-                        <input type="number" class="login-field" value="" placeholder="GR" name="GR">
+                        <input type="number" class="login-field" value="" placeholder="GR" name="GR" required>
             <label class="login-field-icon fui-lock" for="login-pass"></label></div>
             <div class="control-group">
-                        <input type="number" class="login-field" value="" placeholder="Header Lines" name="header">
+                        <input type="number" class="login-field" value="" placeholder="Header Lines" name="header" required>
             <label class="login-field-icon fui-lock" for="login-pass"></label></div>
-            <input type="submit" value="Upload" class="btn btn-primary btn-large btn-block">
+            <input type="submit" value="Upload" class="btn btn-primary btn-large btn-block"><br><br>
             
+            Optional:<br>
+            <div class="control-group">
+                <input type="number" class="login-field" value="" placeholder="MD Column" name="mds">
+            <label class="login-field-icon fui-lock" for="login-pass"></label></div>
+            *MD will not be in output unless specified.
+
             </div>
             </div>
             </div>
 
 
 </form>
-
 </body>
 </html>
 

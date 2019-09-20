@@ -34,6 +34,7 @@ def upload():
             col_rhob = int(request.form["RHOB"])-1
             col_gr = int(request.form["GR"])-1
             head_lines = int(request.form["header"])-1
+            col_md = request.form["mds"]
 
             data0 = df.iloc[head_lines:,:]
             data = data0.iloc[:,[col_dtc,col_dts,col_rhob,col_gr]]
@@ -53,7 +54,7 @@ def upload():
             prob0 = probs.T[0]
             prob1 = probs.T[1]
             prob_f = [0] * len(preds)
-            for p,z in enumerate(prob_f):
+            for p in range(len(prob_f)):
                 if prob0[p] > 0.5:
                     prob_f[p] = prob0[p]
                 else:
@@ -63,7 +64,16 @@ def upload():
             data['Pred'] = data['Pred'].map({0:'Itapema',1:'Barra Velha'})
             data['Prob'] = pd.Series(prob_f)
 
-            resp = make_response(data.to_csv())
+            out = data
+            
+            if not col_md == "":
+                
+                col_md = int(col_md)-1
+                data['MD'] = data0.iloc[:,col_md]
+                out.set_index('MD')
+            
+
+            resp = make_response(out.to_csv())
             resp.headers["Content-Disposition"] = "attachment; filename=pred.csv"
             resp.headers["Content-Type"] = "text/csv"
             return resp
