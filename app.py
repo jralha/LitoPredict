@@ -33,7 +33,7 @@ def upload():
             col_dts = int(request.form["DTs"])-1
             col_rhob = int(request.form["RHOB"])-1
             col_gr = int(request.form["GR"])-1
-            head_lines = int(request.form["header"])
+            head_lines = int(request.form["header"])-1
 
             data0 = df.iloc[head_lines:,:]
             data = data0.iloc[:,[col_dtc,col_dts,col_rhob,col_gr]]
@@ -49,9 +49,19 @@ def upload():
             model = pickle.load(open("model.pkl",'rb'))
 
             preds = model.predict(data_df)
+            probs = model.predict_proba(data_df)
+            prob0 = probs.T[0]
+            prob1 = probs.T[1]
+            prob_f = [0] * len(preds)
+            for p,z in enumerate(prob_f):
+                if prob0[p] > 0.5:
+                    prob_f[p] = prob0[p]
+                else:
+                    prob_f[p] = prob1[p]
 
             data['Pred'] = pd.Series(preds)
             data['Pred'] = data['Pred'].map({0:'Itapema',1:'Barra Velha'})
+            data['Prob'] = pd.Series(prob_f)
 
             resp = make_response(data.to_csv())
             resp.headers["Content-Disposition"] = "attachment; filename=pred.csv"
