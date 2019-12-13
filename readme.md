@@ -8,4 +8,4 @@ Currently a version of the repo hosted on Heroku, inputs and outputs are csv fil
 
 If you try to run this repo, password and username are not secured and are set in app.py, use at your own risk, they're there just as a semblance of security.
 
-The pickle file contains the trained model and shouldn't required anything more than XGBoost to open despite what requirements.txt says.
+The pickle file contains the trained model and shouldn't require anything more than XGBoost to load despite what requirements.txt says.
